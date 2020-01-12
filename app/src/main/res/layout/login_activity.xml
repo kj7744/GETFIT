@@ -26,7 +26,7 @@
            android:src="@drawable/logo"></ImageView>
 
        <EditText
-           android:id="@+id/email"
+           android:id="@+id/email1"
            android:layout_width="match_parent"
            android:layout_height="45dp"
            android:layout_marginTop="30dp"
@@ -38,7 +38,7 @@
 
        </EditText>
        <EditText
-           android:id="@+id/pass"
+           android:id="@+id/pass1"
            android:layout_width="match_parent"
            android:layout_height="45dp"
            android:layout_marginTop="30dp"
@@ -68,7 +68,7 @@
 
        </Button>
        <Button
-           android:id="@+id/signUp"
+           android:id="@+id/signUp_form"
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
            android:layout_marginTop="20dp"

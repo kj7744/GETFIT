@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.getfit">
+    <uses-permission android:name="android.permission.INTERNET"/>
+
 
     <application
         android:allowBackup="true"
@@ -10,23 +12,28 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+
         <activity
-            android:name=".Splash_activity"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
+            android:name=".splash"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Login_activity"
+        <activity android:name=".signup"
             android:theme="@style/login_theme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
+
+        <activity
+            android:name=".LoginActivity"
+            android:theme="@style/login_theme"
+            android:windowSoftInputMode="adjustResize">
+
+        </activity>
+
         <activity android:name=".MainActivity" />
     </application>
 

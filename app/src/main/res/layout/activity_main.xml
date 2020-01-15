@@ -5,16 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/drawerLayout"
+    android:fitsSystemWindows="true"
     tools:context=".MainActivity">
 
     <include
-        android:layout="@layout/app_bar_main"
+        layout="@layout/app_bar_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     </include>
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
+        android:fitsSystemWindows="true"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         app:menu="@menu/drawer_menu"

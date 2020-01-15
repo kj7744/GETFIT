@@ -38,13 +38,7 @@ class signup : AppCompatActivity() {
             pass.requestFocus()
             return
         }
-//        val password: String = passwordText.getText().toString()
-//        if (password.isEmpty() || password.length < 6) {
-//            passwordText.setError("Password cannot be less than 6 characters!")
-//        } else {
-//            passwordText.setError(null)
-//            startActivity(Intent(this@RegistrationActivity, MainActivity::class.java))
-//        }
+
 
         auth.createUserWithEmailAndPassword(email.text.toString(), pass.text.toString())
             .addOnCompleteListener(this) { task ->

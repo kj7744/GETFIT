@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
 
         setSupportActionBar(toolbar)
         val actionBar =supportActionBar
-        actionBar?.title="Navigation Drawer"
+        actionBar?.title="GETFIT"
 
         val drawerToggle: ActionBarDrawerToggle = object : ActionBarDrawerToggle(
             this,

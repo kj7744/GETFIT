@@ -1,12 +1,15 @@
 package com.example.getfit
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
 import android.view.MenuItem
 
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
 
 import kotlinx.android.synthetic.main.app_bar_main.toolbar
@@ -16,6 +19,7 @@ import kotlinx.android.synthetic.main.app_bar_main.view.*
 
 class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelectedListener {
     lateinit var homeFragment: HomeFragment
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,6 +64,12 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
                     .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                     .commit()
             }
+            R.id.logout -> {
+                    auth = FirebaseAuth.getInstance()
+                    auth.signOut()
+                    startActivity(Intent(this,LoginActivity::class.java))
+                    finish()
+            }
         }
         drawerLayout.closeDrawer(GravityCompat.START)
         return true
@@ -73,4 +83,7 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
                 super.onBackPressed()
             }
         }
-}
+
+
+
+    }

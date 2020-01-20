@@ -1,6 +1,7 @@
 package com.example.getfit
 
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -18,7 +19,7 @@ class EquipmentFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_equipment, container, false)
-    }
 
+    }
 
 }

@@ -19,6 +19,7 @@ import kotlinx.android.synthetic.main.app_bar_main.view.*
 
 class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelectedListener {
     lateinit var homeFragment: HomeFragment
+    lateinit var Equipmentfragment:EquipmentFragment
     private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -61,6 +62,14 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
                 supportFragmentManager
                     .beginTransaction()
                     .replace(R.id.frame_layout, homeFragment)
+                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                    .commit()
+            }
+            R.id.gym_equipment -> {
+                Equipmentfragment = EquipmentFragment()
+                supportFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.frame_layout, Equipmentfragment)
                     .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                     .commit()
             }

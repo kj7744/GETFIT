@@ -20,6 +20,10 @@ import kotlinx.android.synthetic.main.app_bar_main.view.*
 class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelectedListener {
     lateinit var homeFragment: HomeFragment
     lateinit var Equipmentfragment:EquipmentFragment
+    lateinit var GymPackagesfragment:GymPackagesFragment
+    lateinit var Fitnessfragment:FitnessFragment
+    lateinit var Trainerfragment:TrainerFragment
+    lateinit var Supportfragment:SupportFragment
     private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -70,6 +74,38 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
                 supportFragmentManager
                     .beginTransaction()
                     .replace(R.id.frame_layout, Equipmentfragment)
+                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                    .commit()
+            }
+            R.id.gym_Packages -> {
+                GymPackagesfragment = GymPackagesFragment()
+                supportFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.frame_layout, GymPackagesfragment)
+                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                    .commit()
+            }
+            R.id.trainers -> {
+                Trainerfragment = TrainerFragment()
+                supportFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.frame_layout, Trainerfragment)
+                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                    .commit()
+            }
+            R.id.fitness_mercahndise -> {
+                Fitnessfragment = FitnessFragment()
+                supportFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.frame_layout, Fitnessfragment)
+                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                    .commit()
+            }
+            R.id.support -> {
+                Supportfragment = SupportFragment()
+                supportFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.frame_layout, Supportfragment)
                     .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                     .commit()
             }

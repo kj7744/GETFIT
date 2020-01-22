@@ -10,74 +10,76 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-   <LinearLayout
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
-       android:orientation="vertical"
-       android:layout_marginLeft="16dp"
-       android:layout_marginRight="16dp"
-       android:layout_centerVertical="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_centerVertical="true">
 
-       <ImageView
-           android:layout_marginTop="70dp"
-           android:layout_width="326dp"
-           android:layout_height="166dp"
-           android:layout_gravity="center"
-           android:src="@drawable/logo"></ImageView>
+            <ImageView
+                android:layout_marginTop="70dp"
+                android:layout_width="326dp"
+                android:layout_height="166dp"
+                android:layout_gravity="center"
+                android:src="@drawable/logo"></ImageView>
 
-       <EditText
-           android:id="@+id/email1"
-           android:layout_width="match_parent"
-           android:layout_height="45dp"
-           android:layout_marginTop="30dp"
-           android:background="@drawable/user_pass_button_style"
-           android:hint="Email"
-           android:drawablePadding="10dp"
-           android:padding="10dp"
-           android:drawableStart="@drawable/person1">
+            <EditText
+                android:id="@+id/email1"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/user_pass_button_style"
+                android:hint="Email"
 
-       </EditText>
-       <EditText
-           android:id="@+id/pass1"
-           android:layout_width="match_parent"
-           android:layout_height="45dp"
-           android:layout_marginTop="30dp"
-           android:background="@drawable/user_pass_button_style"
-           android:hint="Password"
-           android:drawablePadding="10dp"
-           android:padding="10dp"
-           android:drawableStart="@drawable/lock2">
+                android:drawablePadding="10dp"
+                android:padding="10dp"
+                android:drawableStart="@drawable/person1">
 
-       </EditText>
-       <TextView
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:textSize="20dp"
-           android:hint="Forgot password?"
-           android:layout_marginTop="25dp"
-           android:gravity="end">
-       </TextView>
-       <Button
-           android:id="@+id/login_button"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:layout_marginTop="30dp"
-           android:background="@drawable/login_button_style"
-           android:hint="Log In"
-           android:textSize="30dp">
+            </EditText>
+            <EditText
+                android:id="@+id/pass1"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/user_pass_button_style"
+                android:hint="Password"
+                android:drawablePadding="10dp"
+                android:padding="10dp"
+                android:drawableStart="@drawable/lock2">
 
-       </Button>
-       <Button
-           android:id="@+id/signUp_form"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:layout_marginTop="20dp"
-           android:textSize="30dp"
-           android:hint="Sign Up"
-           android:background="@drawable/login_button_style"
-           android:gravity="center">
+            </EditText>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:textAlignment="center"
+                android:hint="Forgot password?"
+                android:layout_marginTop="25dp"
+                android:gravity="end">
+            </TextView>
+            <Button
+                android:id="@+id/login_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/login_button_style"
+                android:hint="Log In"
+                android:textSize="30dp">
 
-       </Button>
-   </LinearLayout>
+            </Button>
+            <Button
+                android:id="@+id/signUp_form"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:textSize="30dp"
+                android:hint="Sign Up"
+                android:background="@drawable/login_button_style"
+                android:gravity="center">
+
+            </Button>
+        </LinearLayout>
     </ScrollView>>
 </RelativeLayout>

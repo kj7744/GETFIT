@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/login_background"
+    android:background="@drawable/gym3"
     tools:context=".LoginActivity">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
@@ -18,68 +18,140 @@
             android:layout_marginRight="16dp"
             android:layout_centerVertical="true">
 
-            <ImageView
-                android:layout_marginTop="70dp"
-                android:layout_width="326dp"
-                android:layout_height="166dp"
-                android:layout_gravity="center"
-                android:src="@drawable/logo"></ImageView>
 
             <EditText
                 android:id="@+id/email1"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="250dp"
                 android:background="@drawable/user_pass_button_style"
-                android:hint="Email"
-
+                android:drawableStart="@drawable/person1"
                 android:drawablePadding="10dp"
-                android:padding="10dp"
-                android:drawableStart="@drawable/person1">
+                android:hint="Email"
+                android:padding="10dp">
 
             </EditText>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:textSize="25dp"
+                android:text="Forgot Password?"
+                android:layout_below="@id/pass1">
+
+            </TextView>
+
             <EditText
                 android:id="@+id/pass1"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_marginTop="30dp"
                 android:background="@drawable/user_pass_button_style"
-                android:hint="Password"
+                android:drawableStart="@drawable/lock2"
+                android:layout_below="@id/email1"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentStart="true"
                 android:drawablePadding="10dp"
-                android:padding="10dp"
-                android:drawableStart="@drawable/lock2">
+                android:hint="Password"
+                android:padding="10dp">
 
             </EditText>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="20dp"
-                android:textAlignment="center"
-                android:hint="Forgot password?"
-                android:layout_marginTop="25dp"
-                android:gravity="end">
-            </TextView>
+
             <Button
                 android:id="@+id/login_button"
-                android:layout_width="match_parent"
+                android:layout_width="305dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
+                android:layout_below="@id/pass1"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="85dp"
                 android:background="@drawable/login_button_style"
-                android:hint="Log In"
+                android:gravity="center"
+
+                android:hint="Login"
                 android:textSize="30dp">
 
             </Button>
             <Button
                 android:id="@+id/signUp_form"
-                android:layout_width="match_parent"
+                android:layout_width="305dp"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/login_button"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentStart="true"
                 android:layout_marginTop="20dp"
-                android:textSize="30dp"
-                android:hint="Sign Up"
                 android:background="@drawable/login_button_style"
-                android:gravity="center">
+                android:gravity="center"
+
+                android:hint="Sign Up"
+                android:textSize="30dp">
 
             </Button>
-        </LinearLayout>
+
+<!--            <ImageView-->
+<!--                android:layout_marginTop="70dp"-->
+<!--                android:layout_width="326dp"-->
+<!--                android:layout_height="166dp"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:src="@drawable/logo"></ImageView>-->
+
+<!--            <EditText-->
+<!--                android:id="@+id/email1"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="45dp"-->
+<!--                android:layout_marginTop="30dp"-->
+<!--                android:background="@drawable/user_pass_button_style"-->
+<!--                android:drawableStart="@drawable/person1"-->
+
+<!--                android:drawablePadding="10dp"-->
+<!--                android:hint="Email"-->
+<!--                android:padding="10dp">-->
+
+<!--            </EditText>-->
+
+<!--            <EditText-->
+<!--                android:id="@+id/pass1"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="45dp"-->
+<!--                android:layout_marginTop="30dp"-->
+<!--                android:background="@drawable/user_pass_button_style"-->
+<!--                android:hint="Password"-->
+<!--                android:drawablePadding="10dp"-->
+<!--                android:padding="10dp"-->
+<!--                android:drawableStart="@drawable/lock2">-->
+
+<!--            </EditText>-->
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:textSize="20dp"-->
+<!--                android:textAlignment="center"-->
+<!--                android:hint="Forgot password?"-->
+<!--                android:layout_marginTop="25dp"-->
+<!--                android:gravity="end">-->
+<!--            </TextView>-->
+<!--            <Button-->
+<!--                android:id="@+id/login_button"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="30dp"-->
+<!--                android:background="@drawable/login_button_style"-->
+<!--                android:hint="Log In"-->
+<!--                android:textSize="30dp">-->
+
+<!--            </Button>-->
+<!--            <Button-->
+<!--                android:id="@+id/signUp_form"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="20dp"-->
+<!--                android:textSize="30dp"-->
+<!--                android:hint="Sign Up"-->
+<!--                android:background="@drawable/login_button_style"-->
+<!--                android:gravity="center">-->
+
+<!--            </Button>-->
+        </RelativeLayout>
     </ScrollView>>
 </RelativeLayout>

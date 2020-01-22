@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!--<resources>-->
-<!--<color name="colorPrimary">#4F426F</color>-->
-<!--<color name="colorPrimaryDark">#595979</color>-->
-<!--<color name="colorAccent">#5B3A69</color>-->
-<!--</resources>-->
+
 <resources>
-    <color name="colorPrimary">#181A3D</color>
-    <color name="colorPrimaryDark">#036EC9</color>
-    <color name="colorAccent">#C04569</color>
+    <color name="colorPrimary">#3C3F41</color>
+    <color name="colorPrimaryDark">#74737D85</color>
+    <color name="colorAccent">#DA0C0C0C</color>
     <color name="border">#AC2FCE</color>
     <color name="button">#36A8D6</color>
     //36A8D6

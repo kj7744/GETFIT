@@ -17,6 +17,7 @@
         android:layout_height="250dp"
         android:layout_marginTop="30dp"
         android:gravity="start"
+        android:textColor="#746F6F"
         android:background="@color/colorPrimaryDark"
         android:hint="Type the queries here"
         android:padding="10dp">
@@ -29,6 +30,7 @@
         android:layout_marginTop="130dp"
         android:textSize="30dp"
         android:text="Submit"
+        android:textColor="#f2f2f2"
         android:background="@drawable/login_button_style"
         android:gravity="center">
 

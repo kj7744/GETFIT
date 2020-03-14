@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
@@ -15,6 +16,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.toolbar
 
 import kotlinx.android.synthetic.main.app_bar_main.view.*
+import kotlinx.android.synthetic.main.show_more_dialog.*
 
 
 class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelectedListener {
@@ -56,6 +58,7 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
             .replace(R.id.frame_layout, homeFragment)
             .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
             .commit()
+
 
     }
 
@@ -129,6 +132,8 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
             }
         }
 
+    fun onRadioButtonClicked(view: View) {}
+    fun membership(view: View) {}
 
 
-    }
+}

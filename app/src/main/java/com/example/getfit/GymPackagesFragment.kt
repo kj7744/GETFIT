@@ -50,6 +50,8 @@ class GymPackagesFragment : Fragment() {
         colorlist.add("#FF6600")
         colorlist.add("#6600FF")
         colorlist.add("#179C52")
+        colorlist.add("#C70039")
+        colorlist.add("#900C3F")
 
         adapter= cardAdapter(modelnames.gympack,2)
         adapter.set(list,context!!)

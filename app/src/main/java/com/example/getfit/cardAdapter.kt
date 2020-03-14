@@ -12,6 +12,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
@@ -20,6 +21,7 @@ import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import kotlinx.android.synthetic.main.gymcard.view.*
+import kotlinx.android.synthetic.main.show_more_dialog.*
 import kotlinx.android.synthetic.main.trainercard.view.*
 import java.util.*
 import kotlin.collections.ArrayList
@@ -45,6 +47,7 @@ class cardAdapter(var type:String,var cardtype:Int):RecyclerView.Adapter<cardVie
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): cardViewHolder {
          var view: View? =null
+
         if(viewType==item_normal_card_view) {
             view = LayoutInflater.from(context).inflate(R.layout.trainercard, parent, false)!!
         }
@@ -53,6 +56,7 @@ class cardAdapter(var type:String,var cardtype:Int):RecyclerView.Adapter<cardVie
 
         }
         return cardViewHolder(view)
+
     }
 
     override fun getItemViewType(position: Int): Int{
@@ -113,14 +117,12 @@ class cardAdapter(var type:String,var cardtype:Int):RecyclerView.Adapter<cardVie
                 holder.itemView.tcard.setOnClickListener{
                     if (sheetBehavior.getState() != BottomSheetBehavior.STATE_EXPANDED) {
                         sheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
-//                sheetBehavior.peekHeight = 200*resources.displayMetrics.density.toInt()
                         Log.d("slidekey",item.name)
                         bmname.text = "Name: ${item.name}"
                         bmdesc.text = "Description: ${item.desc}"
                         bmgen.text = "Gender: ${item.gen}"
                         bmexp.text="Experience:${item.exp}"
                         bmprice.visibility=View.GONE
-//                        bmprice.text="Price: ${item.price}"
                         bmbtn.setOnClickListener(imgclick)
                         Glide.with(context).load(item.imgurl).into(bmimg)
                     } else {
@@ -159,16 +161,13 @@ class cardAdapter(var type:String,var cardtype:Int):RecyclerView.Adapter<cardVie
                 holder.itemView.tcard.setOnClickListener{
                     if (sheetBehavior.getState() != BottomSheetBehavior.STATE_EXPANDED) {
                         sheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
-//                sheetBehavior.peekHeight = 200*resources.displayMetrics.density.toInt()
                         Log.d("slidekey",item.name)
                         bmname.text = "Name: ${item.name}"
                         bmdesc.text = "Description: ${item.desc}"
-//                        bmgen.text = "Gender: ${item.gen}"
-//                        bmexp.text="Experience:${item.exp}"
+                        bmexp.visibility=View.GONE
                         bmgen.visibility=View.GONE
                         bmprice.visibility=View.GONE
                         bmgen.visibility=View.GONE
-//                        bmprice.text="Price: ${item.price}"
                         bmbtn.setOnClickListener(imgclick)
                         Glide.with(context).load(item.imgurl).into(bmimg)
                     } else {
@@ -204,7 +203,6 @@ class cardAdapter(var type:String,var cardtype:Int):RecyclerView.Adapter<cardVie
                             holder.itemView.prog.visibility=View.GONE
                             return false
                         }
-
                     })
                     .into(holder.itemView.timg)
                     holder.itemView.tcard.setOnClickListener {
@@ -214,21 +212,18 @@ class cardAdapter(var type:String,var cardtype:Int):RecyclerView.Adapter<cardVie
                     }
             }
             modelnames.fitmitem->{
-                var item=list[position] as fitnessitems
+                val item=list[position] as fitnessitems
                 holder.itemView.tname.setText(item.name)
                 Glide.with(context).load(item.imgurl).into(holder.itemView.timg)
                 holder.itemView.tcard.setOnClickListener{
                     if (sheetBehavior.getState() != BottomSheetBehavior.STATE_EXPANDED) {
                         sheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
-//                sheetBehavior.peekHeight = 200*resources.displayMetrics.density.toInt()
                         Log.d("slidekey",item.name)
                         bmname.text = "Name: ${item.name}"
                         bmdesc.text = "Description: ${item.desc}"
-//                        bmgen.text = "Gender: ${item.gen}"
-//                        bmexp.text="Experience:${item.exp}"
                         bmgen.visibility=View.GONE
+                        bmexp.visibility=View.GONE
                         bmprice.visibility=View.GONE
-//                        bmprice.visibility=View.GONE
                         bmprice.text="Price: ${item.price}"
                         bmbtn.setOnClickListener(imgclick)
                         Glide.with(context).load(item.imgurl).into(bmimg)
@@ -240,32 +235,31 @@ class cardAdapter(var type:String,var cardtype:Int):RecyclerView.Adapter<cardVie
             modelnames.gympack->{
                 var item=list[position] as gympackage
                 holder.itemView.gpname.setText(item.name)
-//                holder.itemView.gprice.setText(item.price)
                 val rnd = Random()
                 var color=Color.parseColor(colorlist.get(rnd.nextInt(colorlist.size)))
-//                 color: Int = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256))
                 holder.itemView.gpcard.setBackgroundColor(color)
-                holder.itemView.gpcard.setOnClickListener{
+                holder.itemView.gprice.setOnClickListener{
                     if (sheetBehavior.getState() != BottomSheetBehavior.STATE_EXPANDED) {
-                        sheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
-//                sheetBehavior.peekHeight = 200*resources.displayMetrics.density.toInt()
-                        Log.d("slidekey",item.name)
-                        bmname.text = "Name: ${item.name}"
-                        bmdesc.text = "Description: ${item.desc}"
-//                        bmgen.text = "Gender: ${item.gen}"
-//                        bmexp.text="Experience:${item.exp}"
-                        bmgen.visibility=View.GONE
-                        bmprice.visibility=View.GONE
-//                        bmprice.visibility=View.GONE
-                        bmimg.visibility=View.GONE
-                        bmprice.text="Price: ${item.price}"
-                        bmbtn.setOnClickListener(imgclick)
-//                        Glide.with(context).load(item.imgurl).into(bmimg)
+                            sheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+                            Log.d("slidekey",item.name)
+                            bmname.text = "Name: ${item.name}"
+                            bmdesc.text = "Description: ${item.desc}"
+                            bmexp.visibility=View.GONE
+    //                        bmgen.text = "Gender: ${item.gen}"
+    //                        bmexp.text="Experience:${item.exp}"
+                            bmgen.visibility=View.GONE
+                            bmprice.visibility=View.GONE
+    //                        bmprice.visibility=View.GONE
+                            bmimg.visibility=View.GONE
+                            bmprice.text="Price: ${item.price}"
+                            bmbtn.setText("Proceed")
+                            bmbtn.setOnClickListener{
+                                context.startActivity(Intent(context,Membership_form::class.java))
+                            }
                     } else {
                         sheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
                     }
                 }
-                //                Glide.with(context).load(item.imgurl).into(holder.itemView.timg
             }
 
         }
@@ -273,7 +267,6 @@ class cardAdapter(var type:String,var cardtype:Int):RecyclerView.Adapter<cardVie
     var imgclick= View.OnClickListener {
         if (sheetBehavior.getState() != BottomSheetBehavior.STATE_EXPANDED) {
             sheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
-//                sheetBehavior.peekHeight = 200*resources.displayMetrics.density.toInt()
         } else {
             sheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
         }

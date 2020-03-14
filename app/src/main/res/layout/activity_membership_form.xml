@@ -1,0 +1,217 @@
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    tools:context=".MainActivity">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/head"
+        android:layout_width="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Membership Details"
+        android:textAlignment="center"
+        android:textSize="30dp"
+        android:theme="@style/AppTheme"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/flname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/head"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:textColorHint="#A3A3A3">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/full_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/account"
+            android:drawablePadding="15dp"
+            android:drawableTint="@color/colorPrimary"
+            android:hint="Full name*"
+            android:inputType="textPersonName"
+            android:paddingLeft="10dp"
+            android:textColor="@color/cardview_dark_background"
+            android:textSize="20sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/addm"
+        android:layout_below="@id/flname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:textColorHint="#A3A3A3">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/address"
+            android:drawablePadding="15dp"
+            android:drawableTint="@color/colorPrimary"
+            android:hint="Address*"
+            android:inputType="textPersonName"
+            android:paddingLeft="10dp"
+            android:textColor="@color/design_default_color_primary_dark"
+            android:textSize="20sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/dobm"
+        android:layout_below="@id/addm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:textColorHint="#A3A3A3">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/dob"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/calender1"
+            android:drawablePadding="15dp"
+            android:drawableTint="@color/colorPrimary"
+            android:hint="Date of birth*"
+            android:inputType="date"
+            android:paddingLeft="10dp"
+            android:textColor="@color/cardview_dark_background"
+            android:textSize="20sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/emailm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:layout_below="@id/dobm"
+        android:focusableInTouchMode="true"
+        android:textColorHint="#A3A3A3">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/email"
+            android:drawablePadding="15dp"
+            android:drawableTint="@color/colorPrimary"
+            android:hint="Email Address*"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="10dp"
+            android:textColor="@color/cardview_dark_background"
+            android:textSize="20sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/phonm"
+        android:layout_below="@id/emailm"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:textColorHint="#A3A3A3">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/phn_no"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/call"
+            android:drawablePadding="15dp"
+            android:drawableTint="@color/colorPrimary"
+            android:hint="Mobile Number*"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="10dp"
+            android:textColor="@color/cardview_dark_background"
+            android:textSize="20sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_below="@id/phonm"
+        android:id="@+id/boodg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:textColorHint="#A3A3A3">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/bloodgrp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/blood"
+            android:drawablePadding="15dp"
+            android:drawableTint="@color/colorPrimary"
+            android:hint="Blood Group*"
+            android:inputType="text"
+            android:paddingLeft="10dp"
+            android:textColor="@color/cardview_dark_background"
+            android:textSize="20sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <RadioGroup
+        android:id="@+id/radiog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/boodg"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:drawableLeft="@drawable/gender"
+            android:gravity="center_vertical"
+            android:text="Select Gender">
+
+        </TextView>
+
+        <RadioButton
+            android:id="@+id/male"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Male" />
+
+        <RadioButton
+            android:id="@+id/female"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Female" />
+    </RadioGroup>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/radiog"
+        android:background="@drawable/login_button_style"
+        android:text="Submit"
+        android:id="@+id/sendm"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:textSize="32dp">
+
+    </Button>
+    <ProgressBar
+        android:id="@+id/progm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"/>
+</RelativeLayout>
+</ScrollView>

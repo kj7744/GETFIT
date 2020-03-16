@@ -25,7 +25,6 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
     lateinit var GymPackagesfragment:GymPackagesFragment
     lateinit var Fitnessfragment:FitnessFragment
     lateinit var Trainerfragment:TrainerFragment
-    lateinit var Supportfragment:SupportFragment
     private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -105,12 +104,7 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
                     .commit()
             }
             R.id.support -> {
-                Supportfragment = SupportFragment()
-                supportFragmentManager
-                    .beginTransaction()
-                    .replace(R.id.frame_layout, Supportfragment)
-                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-                    .commit()
+                startActivity(Intent(this,Queries::class.java))
             }
             R.id.logout -> {
                     auth = FirebaseAuth.getInstance()

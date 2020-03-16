@@ -8,8 +8,11 @@
         android:allowBackup="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Membership_form"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+        <activity android:name=".Queries"
+            android:theme="@style/login_theme"></activity>
+        <activity
+            android:name=".Membership_form"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".fitnessitem" />
         <activity
             android:name=".splash"

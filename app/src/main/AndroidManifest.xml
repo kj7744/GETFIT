@@ -7,7 +7,8 @@
     <application
         android:allowBackup="true"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:roundIcon="@drawable/logo">
         <activity android:name=".Queries"
             android:theme="@style/login_theme"></activity>
         <activity

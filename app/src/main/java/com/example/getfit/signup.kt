@@ -88,9 +88,5 @@ class signup : AppCompatActivity() {
         }
     }
 
-    override fun onBackPressed() {
-        super.onBackPressed()
-
-    }
 }
 

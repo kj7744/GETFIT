@@ -39,8 +39,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/timg"
+                android:textColor="#000"
                 android:gravity="center_horizontal"
                 android:textSize="25dp"
+                android:fontFamily="sans-serif-black"
+                android:textStyle="italic"
                 android:text="Trainer name">
             </TextView>
 

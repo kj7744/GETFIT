@@ -1,4 +1,5 @@
 package com.example.getfit
+
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -19,12 +20,12 @@ import kotlinx.android.synthetic.main.app_bar_main.view.*
 import kotlinx.android.synthetic.main.show_more_dialog.*
 
 
-class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelectedListener {
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     lateinit var homeFragment: HomeFragment
-    lateinit var Equipmentfragment:EquipmentFragment
-    lateinit var GymPackagesfragment:GymPackagesFragment
-    lateinit var Fitnessfragment:FitnessFragment
-    lateinit var Trainerfragment:TrainerFragment
+    lateinit var Equipmentfragment: EquipmentFragment
+    lateinit var GymPackagesfragment: GymPackagesFragment
+    lateinit var Fitnessfragment: FitnessFragment
+    lateinit var Trainerfragment: TrainerFragment
     private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,8 +33,8 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
         setContentView(R.layout.activity_main)
 
         setSupportActionBar(toolbar)
-        val actionBar =supportActionBar
-        actionBar?.title="GETFIT"
+        val actionBar = supportActionBar
+        actionBar?.title = "GETFIT"
 
         val drawerToggle: ActionBarDrawerToggle = object : ActionBarDrawerToggle(
             this,
@@ -41,10 +42,10 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
             toolbar,
             (R.string.open),
             (R.string.close)
-        ){
+        ) {
 
         }
-        drawerToggle.isDrawerIndicatorEnabled=true
+        drawerToggle.isDrawerIndicatorEnabled = true
         drawerLayout.addDrawerListener(drawerToggle)
         drawerToggle.syncState()
 
@@ -56,6 +57,7 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
             .beginTransaction()
             .replace(R.id.frame_layout, homeFragment)
             .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+           // .addToBackStack(null)
             .commit()
 
 
@@ -69,6 +71,7 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
                     .beginTransaction()
                     .replace(R.id.frame_layout, homeFragment)
                     .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+             //       .addToBackStack(null)
                     .commit()
             }
             R.id.gym_equipment -> {
@@ -77,6 +80,7 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
                     .beginTransaction()
                     .replace(R.id.frame_layout, Equipmentfragment)
                     .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                    .addToBackStack(null)
                     .commit()
             }
             R.id.gym_Packages -> {
@@ -85,6 +89,7 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
                     .beginTransaction()
                     .replace(R.id.frame_layout, GymPackagesfragment)
                     .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                    .addToBackStack(null)
                     .commit()
             }
             R.id.trainers -> {
@@ -93,6 +98,7 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
                     .beginTransaction()
                     .replace(R.id.frame_layout, Trainerfragment)
                     .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                    .addToBackStack(null)
                     .commit()
             }
             R.id.fitness_mercahndise -> {
@@ -101,30 +107,31 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
                     .beginTransaction()
                     .replace(R.id.frame_layout, Fitnessfragment)
                     .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                    .addToBackStack(null)
                     .commit()
             }
             R.id.support -> {
-                startActivity(Intent(this,Queries::class.java))
+                startActivity(Intent(this, Queries::class.java))
             }
             R.id.logout -> {
-                    auth = FirebaseAuth.getInstance()
-                    auth.signOut()
-                    startActivity(Intent(this,LoginActivity::class.java))
-                    finish()
+                auth = FirebaseAuth.getInstance()
+                auth.signOut()
+                startActivity(Intent(this, LoginActivity::class.java))
+                finish()
             }
         }
         drawerLayout.closeDrawer(GravityCompat.START)
         return true
 
     }
-        override fun onBackPressed() {
-            if (drawerLayout.isDrawerOpen(GravityCompat.START)){
-                drawerLayout.closeDrawer(GravityCompat.START)
-            }
-            else {
-                super.onBackPressed()
-            }
+
+    override fun onBackPressed() {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START)
+        } else {
+            super.onBackPressed()
         }
+    }
 
     fun onRadioButtonClicked(view: View) {}
     fun membership(view: View) {}

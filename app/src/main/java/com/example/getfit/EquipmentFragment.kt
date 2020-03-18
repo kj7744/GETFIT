@@ -75,6 +75,7 @@ class EquipmentFragment : Fragment() {
         })
         return view
     }
+
     }
 
 

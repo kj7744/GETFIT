@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".Queries">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="15dp">
+
+        <EditText
+            android:id="@+id/qtext"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginTop="60dp"
+            android:inputType="text"
+            android:background="@color/colorPrimaryDark"
+            android:gravity="start"
+            android:hint="Type the queries here"
+            android:padding="10dp"
+            android:textColor="#ffff">
+
+        </EditText>
+
+        <Button
+            android:id="@+id/qsubmit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="130dp"
+            android:background="@drawable/login_button_style"
+            android:gravity="center"
+            android:text="Submit"
+            android:textColor="#f2f2f2"
+            android:textSize="30dp">
+
+        </Button>
+    </LinearLayout>
+</RelativeLayout>

@@ -233,7 +233,6 @@ class cardAdapter(var type: String, var cardtype: Int) : RecyclerView.Adapter<ca
                         bmgen.visibility = View.GONE
                         bmexp.visibility = View.GONE
                         downarrow.visibility=View.GONE
-                        bmprice.visibility = View.GONE
                         bmprice.text = "Price: ${item.price}"
                         bmbtn.setOnClickListener(imgclick)
                         Glide.with(context).load(item.imgurl).into(bmimg)

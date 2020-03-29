@@ -8,6 +8,7 @@ import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.login_activity.*
+import kotlin.system.exitProcess
 
 class LoginActivity : AppCompatActivity() {
 
@@ -27,6 +28,11 @@ class LoginActivity : AppCompatActivity() {
             finish()
         }
     }
+
+    override fun onBackPressed() {
+        finish()
+    }
+
 
     private fun dbLogin() {
         if (!Patterns.EMAIL_ADDRESS.matcher(email1.text.toString()).matches()) {

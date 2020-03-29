@@ -34,16 +34,15 @@ class GymPackagesFragment : Fragment() {
         var sheetBehavior= BottomSheetBehavior.from(bottom_sheet)
         sheetBehavior.addBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
             override fun onSlide(bottomSheet: View, slideOffset: Float) {
-//                var bmimg=bottomSheet.findViewById(R.id.bmimg) as ImageView
-//                bmimg.minimumHeight=(200*slideOffset*resources.displayMetrics.density).toInt()
-//                bmimg.minimumWidth=(200*slideOffset*resources.displayMetrics.density).toInt()
+                var bmimg=bottomSheet.findViewById(R.id.bmimg) as ImageView
+                bmimg.minimumHeight=(200*slideOffset*resources.displayMetrics.density).toInt()
+                bmimg.minimumWidth=(200*slideOffset*resources.displayMetrics.density).toInt()
             }
 
             override fun onStateChanged(bottomSheet: View, newState: Int){
             }
 
         })
-//        list.add(trainermodel("","","","",""))
         var colorlist= ArrayList<String>()
         colorlist.add("#0000FF")
         colorlist.add("#FF0000")

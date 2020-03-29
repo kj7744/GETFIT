@@ -1,32 +1,40 @@
 package com.example.getfit
 
 import android.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Button
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
-import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.StorageReference
-import kotlinx.android.synthetic.main.activity_queries.*
-import java.util.*
+import kotlinx.android.synthetic.main.fragment_queries_fragement.*
 
-class Queries : AppCompatActivity() {
+
+/**
+ * A simple [Fragment] subclass.
+ */
+class QueriesFragement : Fragment() {
     lateinit var db: DatabaseReference
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_queries)
+    private var btn:Button?=null
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        var view= inflater.inflate(R.layout.fragment_queries_fragement, container, false)
+        btn=view!!.findViewById(R.id.qsubmit) as Button
         db = FirebaseDatabase.getInstance().reference
-        qsubmit.setOnClickListener {
+        btn!!.setOnClickListener {
             validateMenuItem()
         }
+        return view
     }
-
     private fun validateMenuItem() {
         var qtext = qtext.text.toString().trim()
         if (qtext.isNotEmpty()) {
-            var a = AlertDialog.Builder(this)
+            var a = AlertDialog.Builder(context)
                 .setTitle("Add query")
                 .setMessage(" Are you sure you want to add this")
                 .setPositiveButton(
@@ -43,7 +51,7 @@ class Queries : AppCompatActivity() {
                 .show()
 
         } else {
-            Toast.makeText(applicationContext, "Please enter valid info ", Toast.LENGTH_SHORT)
+            Toast.makeText(context, "Please enter valid info ", Toast.LENGTH_SHORT)
                 .show()
         }
     }
@@ -66,8 +74,7 @@ class Queries : AppCompatActivity() {
                         .child(FirebaseAuth.getInstance().currentUser!!.uid.toString())
                         .setValue(hashMap)
                         .addOnSuccessListener {
-                            Toast.makeText(
-                                applicationContext,
+                            Toast.makeText(context,
                                 "Query is added successfully",
                                 Toast.LENGTH_SHORT
                             ).show()
@@ -78,5 +85,6 @@ class Queries : AppCompatActivity() {
             })
 
     }
+
 
 }

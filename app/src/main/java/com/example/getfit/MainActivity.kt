@@ -12,6 +12,8 @@ import androidx.core.view.GravityCompat
 import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.*
+import com.google.firebase.iid.FirebaseInstanceId
 import kotlinx.android.synthetic.main.activity_main.*
 
 import kotlinx.android.synthetic.main.app_bar_main.toolbar
@@ -26,8 +28,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     lateinit var GymPackagesfragment: GymPackagesFragment
     lateinit var Fitnessfragment: FitnessFragment
     lateinit var Trainerfragment: TrainerFragment
+    lateinit var Queriesfragement:QueriesFragement
+    lateinit var Aboutfragment:AboutFragment
     private lateinit var auth: FirebaseAuth
-
+    lateinit var db:DatabaseReference
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -35,7 +39,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         setSupportActionBar(toolbar)
         val actionBar = supportActionBar
         actionBar?.title = "GETFIT"
-
+db=FirebaseDatabase.getInstance().reference
         val drawerToggle: ActionBarDrawerToggle = object : ActionBarDrawerToggle(
             this,
             drawerLayout,
@@ -48,6 +52,25 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         drawerToggle.isDrawerIndicatorEnabled = true
         drawerLayout.addDrawerListener(drawerToggle)
         drawerToggle.syncState()
+        db.child("User").child(FirebaseAuth.getInstance().currentUser?.uid.toString()).child("token").addListenerForSingleValueEvent(
+            object :ValueEventListener {
+                override fun onCancelled(p0: DatabaseError) {
+
+                }
+
+                override fun onDataChange(p0: DataSnapshot) {
+                    if (!p0.exists()) {
+                        FirebaseInstanceId.getInstance().instanceId.addOnSuccessListener {
+                            val token = it.token
+                            db.child("User")
+                                .child(FirebaseAuth.getInstance().currentUser?.uid.toString())
+                                .child("token").setValue(token.toString())
+                        }
+                    }
+                }
+            }
+        )
+
 
         nav_view.setNavigationItemSelectedListener(this)
         //default fragment is home
@@ -57,7 +80,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             .beginTransaction()
             .replace(R.id.frame_layout, homeFragment)
             .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-           // .addToBackStack(null)
             .commit()
 
 
@@ -71,7 +93,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     .beginTransaction()
                     .replace(R.id.frame_layout, homeFragment)
                     .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-             //       .addToBackStack(null)
                     .commit()
             }
             R.id.gym_equipment -> {
@@ -111,7 +132,22 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     .commit()
             }
             R.id.support -> {
-                startActivity(Intent(this, Queries::class.java))
+                Queriesfragement = QueriesFragement()
+                supportFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.frame_layout, Queriesfragement)
+                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                    .addToBackStack(null)
+                    .commit()
+            }
+            R.id.about -> {
+                Aboutfragment = AboutFragment()
+                    supportFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.frame_layout,Aboutfragment)
+                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                    .addToBackStack(null)
+                    .commit()
             }
             R.id.logout -> {
                 auth = FirebaseAuth.getInstance()

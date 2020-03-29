@@ -54,7 +54,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="30dp"
                 android:background="@drawable/user_pass_button_style"
-                android:drawableStart="@drawable/person1"
+                android:drawableStart="@drawable/call1"
                 android:drawablePadding="10dp"
                 android:inputType="phone"
                 android:hint="Phone Number"
@@ -70,7 +70,7 @@
                 android:layout_marginTop="30dp"
                 android:inputType="textEmailAddress"
                 android:background="@drawable/user_pass_button_style"
-                android:drawableStart="@drawable/person1"
+                android:drawableStart="@drawable/email1"
                 android:drawablePadding="10dp"
                 android:hint="Email"
                 android:padding="10dp">

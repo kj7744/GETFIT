@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="20dp">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo">
+
+    </ImageView>
+        <TextView
+            android:layout_marginTop="50dp"
+            android:layout_width="match_parent"
+            android:textSize="20dp"
+            android:fontFamily="sans-serif-condensed"
+            android:layout_height="wrap_content"
+            android:text="GETFIT GYM is one of the GYM Club in Kalyan which was established in the year 2005, GETFIT GYM is located inside the Devgiri building, ground floor, room no 2. GETFIT GYM is a private organization and owned by Vilas Patil contains permanently 8 employees and on average 4 trainers in the GYM."
+            android:textColor="@color/white">
+
+        </TextView>
+
+    </LinearLayout>
+</RelativeLayout>

@@ -34,6 +34,10 @@ class signup : AppCompatActivity() {
 
     }
 
+    override fun onBackPressed() {
+        startActivity(Intent(this,LoginActivity::class.java))
+    }
+
     private fun signupUser() {
         val susername = username.text.toString().trim()
         val semail = email.text.toString().trim()
@@ -58,18 +62,18 @@ class signup : AppCompatActivity() {
 
         if (susername.isNotEmpty() and semail.isNotEmpty() and phno.isNotEmpty()) {
             auth.createUserWithEmailAndPassword(semail, spass)
-                .addOnCompleteListener(this) {
+                .addOnSuccessListener{
                     val hashMap = hashMapOf(
                         "username" to susername,
                         "email" to semail,
                         "phno" to phno
                     )
                     db.child("User")
-                        .child(FirebaseAuth.getInstance().currentUser!!.uid.toString())
+                        .child(FirebaseAuth.getInstance().currentUser?.uid.toString())
                         .setValue(hashMap)
                         .addOnSuccessListener {
                             Toast.makeText(
-                                baseContext, "Sigup successfull.",
+                                baseContext, "Signup successfull.",
                                 Toast.LENGTH_SHORT
                             ).show()
                             startActivity(Intent(this, MainActivity::class.java))

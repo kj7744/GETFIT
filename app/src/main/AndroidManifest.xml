@@ -3,20 +3,25 @@
     package="com.example.getfit">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
-        android:supportsRtl="true"
-        android:label="GETFIT"
         android:icon="@mipmap/getfit"
-        android:theme="@style/AppTheme"
-        android:roundIcon="@mipmap/getfit_round">
-        <service android:name=".notificationService"
+        android:label="GETFIT"
+        android:roundIcon="@mipmap/getfit_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".payment"></activity>
+
+        <service
+            android:name=".notificationService"
             android:exported="false">
             <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
+
         <activity
             android:name=".Membership_form"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />

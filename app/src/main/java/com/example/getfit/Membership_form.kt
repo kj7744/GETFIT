@@ -1,5 +1,6 @@
 package com.example.getfit
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -14,10 +15,12 @@ import java.util.*
 
 class Membership_form : AppCompatActivity() {
     lateinit var db: DatabaseReference
+    var price=""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_membership_form)
         db = FirebaseDatabase.getInstance().reference
+        price=intent.extras!!.getString("price")!!
         sendm.setOnClickListener {
             validate()
         }
@@ -82,9 +85,20 @@ class Membership_form : AppCompatActivity() {
             .child("memdetails")
             .setValue(hashMap)
             .addOnSuccessListener {
-                Toast.makeText(applicationContext, "Details added successfully", Toast.LENGTH_SHORT)
-                    .show()
                 progm.visibility = View.GONE
+                if(price.isNotEmpty()){
+                    Toast.makeText(applicationContext, "Details added successfully", Toast.LENGTH_SHORT)
+                        .show()
+                    startActivity(Intent(applicationContext,payment::class.java)
+                        .apply {
+                            putExtra("price",price)
+                        })
+                }
+                else{
+                    Toast.makeText(applicationContext, "Something went wrong", Toast.LENGTH_SHORT)
+                        .show()
+                    finish()
+                }
             }
     }
 }

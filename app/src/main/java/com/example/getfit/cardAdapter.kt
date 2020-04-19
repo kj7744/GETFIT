@@ -24,7 +24,7 @@ import kotlinx.android.synthetic.main.gymcard.view.*
 import kotlinx.android.synthetic.main.trainercard.view.*
 import java.util.*
 import kotlin.collections.ArrayList
-
+//dekho
 class cardAdapter(var type: String, var cardtype: Int) : RecyclerView.Adapter<cardViewHolder>() {
     lateinit var context: Context
     lateinit var list: ArrayList<Any>
@@ -264,7 +264,9 @@ class cardAdapter(var type: String, var cardtype: Int) : RecyclerView.Adapter<ca
                         bmbtn.text = "Proceed"
                         downarrow.setOnClickListener(imgclick)
                         bmbtn.setOnClickListener {
-                            context.startActivity(Intent(context, Membership_form::class.java))
+                            context.startActivity(Intent(context, Membership_form::class.java).apply {
+                                putExtra("price",item.price)
+                            })
                         }
                     } else {
                         sheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);

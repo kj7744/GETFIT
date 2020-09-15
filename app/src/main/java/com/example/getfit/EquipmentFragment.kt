@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.RelativeLayout
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.getfit.cardAdapter
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.fragment_equipment.view.*

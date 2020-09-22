@@ -4,6 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
+import android.view.View
+import android.widget.EditText
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -35,17 +37,19 @@ class LoginActivity : AppCompatActivity() {
 
 
     private fun dbLogin() {
+        val pass = findViewById<View>(R.id.password) as EditText
+        val ps = pass.text.toString()
         if (!Patterns.EMAIL_ADDRESS.matcher(email1.text.toString()).matches()) {
             email1.error = " Invalid email"
             email1.requestFocus()
             return
         }
-        if (pass1.text.toString().isEmpty()) {
+        if (ps.isEmpty()) {
             pass1.error = "password cannot be empty"
             pass1.requestFocus()
             return
         }
-        auth.signInWithEmailAndPassword(email1.text.toString(), pass1.text.toString())
+        auth.signInWithEmailAndPassword(email1.text.toString(), ps)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information

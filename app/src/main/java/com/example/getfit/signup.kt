@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Patterns
 import android.view.View
+import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -39,6 +40,7 @@ class signup : AppCompatActivity() {
     }
 
     private fun signupUser() {
+        val pass = findViewById<View>(R.id.password1) as EditText
         val susername = username.text.toString().trim()
         val semail = email.text.toString().trim()
         val spass = pass.text.toString().trim()
